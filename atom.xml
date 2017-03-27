@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.zhiyuanep.net/"/>
-  <updated>2017-03-27T11:14:39.002Z</updated>
+  <updated>2017-03-27T11:34:30.749Z</updated>
   <id>http://blog.zhiyuanep.net/</id>
   
   <author>
@@ -20,9 +20,15 @@
     <link href="http://blog.zhiyuanep.net/2017/03/27/%E6%96%B0%E7%9A%84%E5%BC%80%E5%A7%8B/"/>
     <id>http://blog.zhiyuanep.net/2017/03/27/新的开始/</id>
     <published>2017-03-27T11:14:38.000Z</published>
-    <updated>2017-03-27T11:14:39.002Z</updated>
+    <updated>2017-03-27T11:34:30.749Z</updated>
+    
+    <content type="html"><![CDATA[<p>这是一个新的开始。</p>
+]]></content>
     
     <summary type="html">
+    
+      &lt;p&gt;这是一个新的开始。&lt;/p&gt;
+
     
     </summary>
     
