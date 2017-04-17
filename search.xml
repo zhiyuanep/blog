@@ -299,7 +299,7 @@ $ cd &lt;folder&gt;
 </tr>
 </tbody>
 </table>
-<p>关于 <code>deploy</code> 的详细设置请参考<a href="">此处</a>。``</p>
+<p>关于 <code>deploy</code> 的详细设置请参考<a href="#部署">此处</a>。``</p>
 <hr>
 <h3 id="Hexo-指令"><a href="#Hexo-指令" class="headerlink" title="Hexo 指令"></a>Hexo 指令</h3><h4 id="init"><a href="#init" class="headerlink" title="init"></a>init</h4><pre><code>$ hexo new [folder]
 </code></pre><p>新建一个网站。如果 <code>folder</code> 为空，则默认在当前目录建立网站。</p>

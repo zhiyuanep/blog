@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.zhiyuanep.net/"/>
-  <updated>2017-04-17T09:55:48.566Z</updated>
+  <updated>2017-04-17T11:11:58.751Z</updated>
   <id>http://blog.zhiyuanep.net/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://blog.zhiyuanep.net/2017/04/17/Hexo%E7%AE%80%E6%98%93%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/"/>
     <id>http://blog.zhiyuanep.net/2017/04/17/Hexo简易使用手册/</id>
     <published>2017-04-17T05:14:53.000Z</published>
-    <updated>2017-04-17T09:55:48.566Z</updated>
+    <updated>2017-04-17T11:11:58.751Z</updated>
     
     <content type="html"><![CDATA[<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>这篇文章只摘取了自己认为重要的信息，方便日后查找。具体请参考 <a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="external">Hexo 官方文档</a>。</p>
 <h2 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><h4 id="安装前提"><a href="#安装前提" class="headerlink" title="安装前提"></a>安装前提</h4><p>在安装 Hexo 之前，请确保系统已经安装了以下软件：</p>
@@ -315,7 +315,7 @@ $ cd &lt;folder&gt;
 </tr>
 </tbody>
 </table>
-<p>关于 <code>deploy</code> 的详细设置请参考<a href="">此处</a>。``</p>
+<p>关于 <code>deploy</code> 的详细设置请参考<a href="#部署">此处</a>。``</p>
 <hr>
 <h3 id="Hexo-指令"><a href="#Hexo-指令" class="headerlink" title="Hexo 指令"></a>Hexo 指令</h3><h4 id="init"><a href="#init" class="headerlink" title="init"></a>init</h4><pre><code>$ hexo new [folder]
 </code></pre><p>新建一个网站。如果 <code>folder</code> 为空，则默认在当前目录建立网站。</p>
