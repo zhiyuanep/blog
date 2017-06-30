@@ -1,12 +1,381 @@
-<?xml version="1.0" encoding="utf-8"?>
-<search>
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Git,学习笔记," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="zhylee's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="摘录于《Git Pro》。原文地址:https://git-scm.com/book/zh/v2/ 背景知识关于版本控制什么是“版本控制”？版本控制是一种记录一个或若干文件内容变化，以便将来查阅特定版本修订情况的系统。 版本控制系统(VCS)的演进本地版本控制系统 -&amp;gt; 集中化的版本控制系统 -&amp;gt; 分布式版本控制系统。 本地版本控制系统大多数都是采用某种简单的数据库来记录文件的历次更新">
+<meta name="keywords" content="Git,学习笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git学习笔记">
+<meta property="og:url" content="http://blog.zhiyuanep.net/2017/04/19/Git学习笔记/index.html">
+<meta property="og:site_name" content="zhylee&#39;s Blog">
+<meta property="og:description" content="摘录于《Git Pro》。原文地址:https://git-scm.com/book/zh/v2/ 背景知识关于版本控制什么是“版本控制”？版本控制是一种记录一个或若干文件内容变化，以便将来查阅特定版本修订情况的系统。 版本控制系统(VCS)的演进本地版本控制系统 -&amp;gt; 集中化的版本控制系统 -&amp;gt; 分布式版本控制系统。 本地版本控制系统大多数都是采用某种简单的数据库来记录文件的历次更新">
+<meta property="og:image" content="http://blog.zhiyuanep.net/2017/04/19/Git学习笔记/local.png">
+<meta property="og:image" content="http://blog.zhiyuanep.net/2017/04/19/Git学习笔记/centralized.png">
+<meta property="og:image" content="http://blog.zhiyuanep.net/2017/04/19/Git学习笔记/distributed.png">
+<meta property="og:image" content="http://blog.zhiyuanep.net/2017/04/19/Git学习笔记/deltas.png">
+<meta property="og:image" content="http://blog.zhiyuanep.net/2017/04/19/Git学习笔记/snapshots.png">
+<meta property="og:image" content="http://blog.zhiyuanep.net/2017/04/19/Git学习笔记/areas.png">
+<meta property="og:image" content="http://blog.zhiyuanep.net/2017/04/19/Git学习笔记/lifecycle.png">
+<meta property="og:updated_time" content="2017-04-20T13:22:13.538Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git学习笔记">
+<meta name="twitter:description" content="摘录于《Git Pro》。原文地址:https://git-scm.com/book/zh/v2/ 背景知识关于版本控制什么是“版本控制”？版本控制是一种记录一个或若干文件内容变化，以便将来查阅特定版本修订情况的系统。 版本控制系统(VCS)的演进本地版本控制系统 -&amp;gt; 集中化的版本控制系统 -&amp;gt; 分布式版本控制系统。 本地版本控制系统大多数都是采用某种简单的数据库来记录文件的历次更新">
+<meta name="twitter:image" content="http://blog.zhiyuanep.net/2017/04/19/Git学习笔记/local.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://blog.zhiyuanep.net/2017/04/19/Git学习笔记/"/>
+
+
+
+
+
+  <title> Git学习笔记 | zhylee's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
   
     
-    <entry>
-      <title><![CDATA[Git学习笔记]]></title>
-      <url>http://blog.zhiyuanep.net/2017/04/19/Git%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-      <content type="html"><![CDATA[<p>摘录于《Git Pro》。原文地址:<a href="https://git-scm.com/book/zh/v2/" target="_blank" rel="external">https://git-scm.com/book/zh/v2/</a></p>
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">zhylee's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">本该狂妄的年纪，怎能如此消极？</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.zhiyuanep.net/2017/04/19/Git学习笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhylee">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhylee's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Git学习笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-19T22:57:26+08:00">
+                2017-04-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/04/19/Git学习笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/04/19/Git学习笔记/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>摘录于《Git Pro》。原文地址:<a href="https://git-scm.com/book/zh/v2/" target="_blank" rel="external">https://git-scm.com/book/zh/v2/</a></p>
 <h2 id="背景知识"><a href="#背景知识" class="headerlink" title="背景知识"></a>背景知识</h2><h3 id="关于版本控制"><a href="#关于版本控制" class="headerlink" title="关于版本控制"></a>关于版本控制</h3><h4 id="什么是“版本控制”？"><a href="#什么是“版本控制”？" class="headerlink" title="什么是“版本控制”？"></a>什么是“版本控制”？</h4><p>版本控制是一种记录一个或若干文件内容变化，以便将来查阅特定版本修订情况的系统。</p>
 <h4 id="版本控制系统-VCS-的演进"><a href="#版本控制系统-VCS-的演进" class="headerlink" title="版本控制系统(VCS)的演进"></a>版本控制系统(VCS)的演进</h4><p>本地版本控制系统 -&gt; 集中化的版本控制系统 -&gt; 分布式版本控制系统。</p>
 <h4 id="本地版本控制系统"><a href="#本地版本控制系统" class="headerlink" title="本地版本控制系统"></a>本地版本控制系统</h4><p>大多数都是采用某种简单的数据库来记录文件的历次更新的差异。其中最流行的是RCS，它的工作原理是在硬盘上保存补丁集（文件修订前后的变化）；通过应用所有补丁，可以重新计算出各个版本的文件内容。</p>
@@ -554,732 +923,398 @@ $ git commit --amend
 <p>记住，在 Git 中任何已提交的东西几乎总是可以恢复的。甚至那些被删除的分支中的提交或使用<code>--amend</code>选项覆盖的提交也可以恢复。然而，任何你未提交的东西丢失后很可能再也找不到了。</p>
 <h3 id="远程仓库的使用"><a href="#远程仓库的使用" class="headerlink" title="远程仓库的使用"></a>远程仓库的使用</h3><h4 id="查看远程仓库"><a href="#查看远程仓库" class="headerlink" title="查看远程仓库"></a>查看远程仓库</h4><p>如果想查看已经配置的远程仓库服务器，可以运行<code>git remote</code>命令，它会列出你指定的每一个远程服务器的简写。如果你已经克隆了自己的仓库，那么至少可以看到 origin –这是Git 给你克隆的仓库服务器的默认名字。</p>
 <p>也可以指定选项<code>-v</code>，会显示需要读写远程仓库使用的 Git 保存的简写与其对应的 URL。</p>
-]]></content>
+
       
-        <categories>
-            
-            <category> Git </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> Git </tag>
-            
-            <tag> 学习笔记 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[Hexo简易使用手册]]></title>
-      <url>http://blog.zhiyuanep.net/2017/04/17/Hexo%E7%AE%80%E6%98%93%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/</url>
-      <content type="html"><![CDATA[<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>这篇文章只摘取了自己认为重要的信息，方便日后查找。具体请参考 <a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="external">Hexo 官方文档</a>。</p>
-<h2 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><h4 id="安装前提"><a href="#安装前提" class="headerlink" title="安装前提"></a>安装前提</h4><p>在安装 Hexo 之前，请确保系统已经安装了以下软件：</p>
-<ul>
-<li><a href="http://nodejs.org/" target="_blank" rel="external">Node.js</a></li>
-<li><a href="http://git-scm.com/" target="_blank" rel="external">Git</a></li>
-</ul>
-<h4 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h4><pre><code>$ npm install -g hexo-cli
-</code></pre><hr>
-<h3 id="建站"><a href="#建站" class="headerlink" title="建站"></a>建站</h3><p>执行以下命令初始化博客项目，其中 <code>&lt;folder&gt;</code> 为博客目录名称。</p>
-<pre><code>$ hexo init &lt;folder&gt;
-$ cd &lt;folder&gt;
-</code></pre><h3 id="文件说明"><a href="#文件说明" class="headerlink" title="文件说明"></a>文件说明</h3><p>新建完成后，生成的文件目录如下：</p>
-<pre><code>├── _config.yml
-├── package.json
-├── scaffolds
-├── source
-|   ├── _drafts
-|   └── _posts
-└── themes
-</code></pre><h4 id="config-yml"><a href="#config-yml" class="headerlink" title="_config.yml"></a>_config.yml</h4><p>博客的配置文件，可以配置生成器、插件、站点信息等大部分参数。</p>
-<h4 id="scaffolds"><a href="#scaffolds" class="headerlink" title="scaffolds"></a>scaffolds</h4><p>模板文件夹。新建文章时，Hexo 会根据 scaffolds 来填充新建的 markdown 文件的内容。</p>
-<h4 id="source"><a href="#source" class="headerlink" title="source"></a>source</h4><p>存放用户资源的地方。除了 <code>_posts</code> 文件夹之外，开头命名为 <code>_</code> 的文件/文件夹和隐藏的文件将会被忽略。Markdown 和 HTML 文件会被解析并放到 <code>public</code> 文件夹，而其它文件会被挎贝过去。</p>
-<h4 id="themes"><a href="#themes" class="headerlink" title="themes"></a>themes</h4><p>主题文件夹。Hexo 会根据主题来生成静态页面。</p>
-<hr>
-<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>可以在 <code>_config.yml</code> 修改大部分配置。</p>
-<h4 id="网站"><a href="#网站" class="headerlink" title="网站"></a>网站</h4><table>
-<thead>
-<tr>
-<th style="text-align:left">参数</th>
-<th style="text-align:left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><code>title</code></td>
-<td style="text-align:left">网站标题</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>subtitle</code></td>
-<td style="text-align:left">网站副标题</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>description</code></td>
-<td style="text-align:left">网站描述</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>author</code></td>
-<td style="text-align:left">您的名字</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>language</code></td>
-<td style="text-align:left">网站使用的语言</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>timezone</code></td>
-<td style="text-align:left">网站时区，Hexo 默认使用您电脑的时区。<a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones" target="_blank" rel="external">时区列表</a>。比如说：<code>America/New_York</code>，<code>Asia/Shanghai</code></td>
-</tr>
-</tbody>
-</table>
-<p>其中，<code>description</code> 主要用于SEO，告诉搜索引擎一个关于您站点的简单描述，通常建议在其中包含您网站的关键词。<code>author</code> 参数用于主题显示文章的作者。</p>
-<h4 id="网址"><a href="#网址" class="headerlink" title="网址"></a>网址</h4><table>
-<thead>
-<tr>
-<th style="text-align:left">参数</th>
-<th style="text-align:left">描述</th>
-<th style="text-align:left">默认值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><code>url</code></td>
-<td style="text-align:left">网址</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left"><code>root</code></td>
-<td style="text-align:left">网站根目录</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left"><code>permalink</code></td>
-<td style="text-align:left">文章的永久链接格式</td>
-<td style="text-align:left"><code>:year/:month:/day/:title/</code></td>
-</tr>
-<tr>
-<td style="text-align:left"><code>permalink_defaults</code></td>
-<td style="text-align:left">永久链接中各部分的默认值</td>
-</tr>
-</tbody>
-</table>
-<p>如果您的网站存在于子目录中，例如 <code>http://yoursite.com/blog</code>，则请将 <code>url</code> 设为 <code>http://yoursite.com/blog</code> 并把 <code>root</code> 设为 <code>/blog/</code>。</p>
-<h4 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h4><table>
-<thead>
-<tr>
-<th style="text-align:left">参数</th>
-<th style="text-align:left">描述</th>
-<th style="text-align:left">默认值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><code>source_dir</code></td>
-<td style="text-align:left">资源文件夹，这个文件夹来存放内容。</td>
-<td style="text-align:left">source</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>public_dir</code></td>
-<td style="text-align:left">公共文件夹，这个文件夹用于存放生成的站点文件。</td>
-<td style="text-align:left">public</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>tag_dir</code></td>
-<td style="text-align:left">标签文件夹</td>
-<td style="text-align:left">tags</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>archive_dir</code></td>
-<td style="text-align:left">归档文件夹</td>
-<td style="text-align:left">archives</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>category_dir</code></td>
-<td style="text-align:left">分类文件夹</td>
-<td style="text-align:left">categories</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>code_dir</code></td>
-<td style="text-align:left">include code 文件夹</td>
-<td style="text-align:left">downloads/code</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>i18n_dir</code></td>
-<td style="text-align:left">国际化（i18n）文件夹</td>
-<td style="text-align:left">:lang</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>skip_render</code></td>
-<td style="text-align:left">路过指定文件的渲染，您可使用 glob 表达式来匹配路径。</td>
-</tr>
-</tbody>
-</table>
-<h4 id="文章"><a href="#文章" class="headerlink" title="文章"></a>文章</h4><table>
-<thead>
-<tr>
-<th style="text-align:left">参数</th>
-<th style="text-align:left">描述</th>
-<th style="text-align:left">默认值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><code>new_post_name</code></td>
-<td style="text-align:left">新文章的文件名称</td>
-<td style="text-align:left">:title.md</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>default_layout</code></td>
-<td style="text-align:left">预设布局</td>
-<td style="text-align:left">post</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>auto_spacing</code></td>
-<td style="text-align:left">在中文和英文之间加入空格</td>
-<td style="text-align:left">false</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>titlecase</code></td>
-<td style="text-align:left">把标题转换为 title case</td>
-<td style="text-align:left">false</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>external_link</code></td>
-<td style="text-align:left">在新标签中打开链接</td>
-<td style="text-align:left">true</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>filename_case</code></td>
-<td style="text-align:left">把文件名称转换为(1)小写或(2)大写</td>
-<td style="text-align:left">0</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>render_drafts</code></td>
-<td style="text-align:left">显示草稿</td>
-<td style="text-align:left">false</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>post_asset_folder</code></td>
-<td style="text-align:left">启动 Asset 文件夹</td>
-<td style="text-align:left">false</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>relative_link</code></td>
-<td style="text-align:left">把链接改为与根目录的相对位址</td>
-<td style="text-align:left">false</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>future</code></td>
-<td style="text-align:left">显示未来的文章</td>
-<td style="text-align:left">true</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>highlight</code></td>
-<td style="text-align:left">代码块的设置</td>
-</tr>
-</tbody>
-</table>
-<p>默认情况下，Hexo 生成的超链接都是绝对地址。而相对链接无论用什么域名访问该站点都没有关系，这在进行反向代理时可能用到。通常情况下，建议使用绝对地址。</p>
-<h4 id="分类-amp-标签"><a href="#分类-amp-标签" class="headerlink" title="分类&amp;标签"></a>分类&amp;标签</h4><table>
-<thead>
-<tr>
-<th style="text-align:left">参数</th>
-<th style="text-align:left">描述</th>
-<th style="text-align:left">默认值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><code>default_category</code></td>
-<td style="text-align:left">默认分类</td>
-<td style="text-align:left">uncategorized</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>category_map</code></td>
-<td style="text-align:left">分类别名</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left"><code>tag_map</code></td>
-<td style="text-align:left">标签别名</td>
-</tr>
-</tbody>
-</table>
-<h4 id="日期-时间"><a href="#日期-时间" class="headerlink" title="日期/时间"></a>日期/时间</h4><p>Hexo 使用 <a href="http://momentjs.com/" target="_blank" rel="external">Moment.js</a>来解析和显示时间。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">参数</th>
-<th style="text-align:left">描述</th>
-<th style="text-align:left">默认值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><code>date_format</code></td>
-<td style="text-align:left">日期格式</td>
-<td style="text-align:left">YYYY-MM-DD</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>time_format</code></td>
-<td style="text-align:left">时间格式</td>
-<td style="text-align:left">H:mm:ss</td>
-</tr>
-</tbody>
-</table>
-<h4 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h4><table>
-<thead>
-<tr>
-<th style="text-align:left">参数</th>
-<th style="text-align:left">描述</th>
-<th style="text-align:left">默认值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><code>per_page</code></td>
-<td style="text-align:left">每页显示的文章量（0=关闭分页功能）</td>
-<td style="text-align:left">10</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>pagination_dir</code></td>
-<td style="text-align:left">分页目录</td>
-<td style="text-align:left">page</td>
-</tr>
-</tbody>
-</table>
-<h4 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h4><table>
-<thead>
-<tr>
-<th style="text-align:left">参数</th>
-<th style="text-align:left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><code>theme</code></td>
-<td style="text-align:left">当前主题名称。值为 <code>false</code> 时禁用主题</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>deploy</code></td>
-<td style="text-align:left">部署部分的设置</td>
-</tr>
-</tbody>
-</table>
-<p>关于 <code>deploy</code> 的详细设置请参考<a href="#部署">此处</a>。</p>
-<hr>
-<h3 id="Hexo-指令"><a href="#Hexo-指令" class="headerlink" title="Hexo 指令"></a>Hexo 指令</h3><h4 id="init"><a href="#init" class="headerlink" title="init"></a>init</h4><pre><code>$ hexo new [folder]
-</code></pre><p>新建一个网站。如果 <code>folder</code> 为空，则默认在当前目录建立网站。</p>
-<h4 id="new"><a href="#new" class="headerlink" title="new"></a>new</h4><pre><code>$ hexo new [layout] &lt;title&gt;
-</code></pre><p>新建一篇文章。如果没有指定 <code>layout</code>，默认使用 <a href="#文章">_config.yml</a>中的 <code>default_layout</code> 参数代替。如果标题包含空格的话，请使用引号括起来。</p>
-<h4 id="generate"><a href="#generate" class="headerlink" title="generate"></a>generate</h4><pre><code>$ hexo generate
-</code></pre><p>或：</p>
-<pre><code>$ hexo g
-</code></pre><p>生成静态文件。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">选项</th>
-<th style="text-align:left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><code>-d</code>, <code>--deploy</code></td>
-<td style="text-align:left">文件生成后立即部署网站</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>-w</code>, <code>--watch</code></td>
-<td style="text-align:left">监视文件变动</td>
-</tr>
-</tbody>
-</table>
-<h4 id="publish"><a href="#publish" class="headerlink" title="publish"></a>publish</h4><pre><code>$ hexo publish [layout] &lt;filename&gt;
-</code></pre><p>发表草稿。</p>
-<h4 id="server"><a href="#server" class="headerlink" title="server"></a>server</h4><pre><code>$ hexo server
-</code></pre><p>或：</p>
-<pre><code>$ hexo s
-</code></pre><p>启动服务器。默认情况下，访问网址为：<code>http://localhost:4000/</code>。</p>
-<p>Hexo 3.0 把服务器独立成了个别模块，您必须先安装 hexo-server 才能使用。</p>
-<pre><code>$ npm install hexo-server --save
-</code></pre><table>
-<thead>
-<tr>
-<th style="text-align:left">选项</th>
-<th style="text-align:left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><code>-p</code>, <code>--port</code></td>
-<td style="text-align:left">重设端口</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>-s</code>, <code>--static</code></td>
-<td style="text-align:left">只使用静态文件</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>-l</code>, <code>--log</code></td>
-<td style="text-align:left">启动日记记录，使用覆盖记录格式</td>
-</tr>
-</tbody>
-</table>
-<h4 id="deploy"><a href="#deploy" class="headerlink" title="deploy"></a>deploy</h4><pre><code>$ hexo deploy
-</code></pre><p>或：</p>
-<pre><code>$ hexo d
-</code></pre><p>部署网站。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">选项</th>
-<th style="text-align:left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><code>-g</code>, <code>--generate</code></td>
-<td style="text-align:left">部署之前预先生成静态文件</td>
-</tr>
-</tbody>
-</table>
-<h4 id="rendder"><a href="#rendder" class="headerlink" title="rendder"></a>rendder</h4><pre><code>$ hexo render &lt;file1&gt; [file2] ...
-</code></pre><p>渲染文件。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">选项</th>
-<th style="text-align:left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><code>-o</code>, <code>--output</code></td>
-<td style="text-align:left">设置输出路径</td>
-</tr>
-</tbody>
-</table>
-<h4 id="migrate"><a href="#migrate" class="headerlink" title="migrate"></a>migrate</h4><pre><code>$ hexo migrate &lt;type&gt;
-</code></pre><p>从其它博客系统迁移内容，具体参考<a href="https://hexo.io/zh-cn/docs/migration.html" target="_blank" rel="external">此处</a>。</p>
-<h4 id="clean"><a href="#clean" class="headerlink" title="clean"></a>clean</h4><pre><code>$ hexo clean
-</code></pre><p>清除缓存文件（<code>db.json</code>）和已生成的静态文件（<code>public</code>）。</p>
-<h4 id="list"><a href="#list" class="headerlink" title="list"></a>list</h4><pre><code>$ hexo list
-</code></pre><p>列出网站资料。</p>
-<h4 id="version"><a href="#version" class="headerlink" title="version"></a>version</h4><pre><code>$ hexo version
-</code></pre><p>显示 Hexo 版本。</p>
-<h4 id="全局选项"><a href="#全局选项" class="headerlink" title="全局选项"></a>全局选项</h4><h5 id="安全模式"><a href="#安全模式" class="headerlink" title="安全模式"></a>安全模式</h5><pre><code>$ hexo --safe
-</code></pre><p>安全模式下，不会载入插件和脚本。如果在安装新插件时遭遇问题，可以尝试以安全模式重新执行。</p>
-<h5 id="调试模式"><a href="#调试模式" class="headerlink" title="调试模式"></a>调试模式</h5><pre><code>$ hexo --debug
-</code></pre><p>在终端中显示调试信息并记录到 <code>debug.log</code>。</p>
-<h5 id="简洁模式"><a href="#简洁模式" class="headerlink" title="简洁模式"></a>简洁模式</h5><pre><code>$ hexo --slient
-</code></pre><p>隐藏终端信息。</p>
-<h5 id="自定义配置文件的路径"><a href="#自定义配置文件的路径" class="headerlink" title="自定义配置文件的路径"></a>自定义配置文件的路径</h5><pre><code>$ hexo --config custom.yml
-</code></pre><p>自定义配置文件路径，执行后将不再使用 <code>_config.yml</code>。</p>
-<h5 id="显示草稿"><a href="#显示草稿" class="headerlink" title="显示草稿"></a>显示草稿</h5><pre><code>$ hexo --draft
-</code></pre><p>显示 <code>source/_drafts</code> 文件夹中的草稿文章。</p>
-<h5 id="自定义CWD"><a href="#自定义CWD" class="headerlink" title="自定义CWD"></a>自定义CWD</h5><pre><code>$ hexo --cwd /path/to/cwd
-</code></pre><p>自定义当前工作目录 (current working directory) 的路径。</p>
-<hr>
-<h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><h3 id="写作"><a href="#写作" class="headerlink" title="写作"></a>写作</h3><p>通过以下命令创建一篇文章。</p>
-<pre><code>$ hexo new [layout] &lt;title&gt;
-</code></pre><p>默认布局为 <code>post</code>。</p>
-<h4 id="布局（Layout）"><a href="#布局（Layout）" class="headerlink" title="布局（Layout）"></a>布局（Layout）</h4><p>Hexo 有三种默认布局：<code>post</code>、<code>page</code> 和 <code>draft</code>，它们分别对应不同的路径，而您自定义的其它布局和 <code>post</code> 相同，都将会储存到 <code>source/_posts</code> 文件夹。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">布局</th>
-<th style="text-align:left">路径</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><code>post</code></td>
-<td style="text-align:left"><code>source/_posts</code></td>
-</tr>
-<tr>
-<td style="text-align:left"><code>page</code></td>
-<td style="text-align:left"><code>source</code></td>
-</tr>
-<tr>
-<td style="text-align:left"><code>draft</code></td>
-<td style="text-align:left"><code>source/_drafts</code></td>
-</tr>
-</tbody>
-</table>
-<h4 id="文件名称"><a href="#文件名称" class="headerlink" title="文件名称"></a>文件名称</h4><p>Hexo 默认以标题作为文件名称。<code>_config.yml</code> 文件的 <code>new_post_name</code> 参数支持以下变量。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">变量</th>
-<th style="text-align:left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><code>:title</code></td>
-<td style="text-align:left">标题（小写，空格将会被替换为短杠）</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>:year</code></td>
-<td style="text-align:left">建立的年份，比如, <code>2017</code></td>
-</tr>
-<tr>
-<td style="text-align:left"><code>:month</code></td>
-<td style="text-align:left">建立的月份（有前导零），比如， <code>04</code></td>
-</tr>
-<tr>
-<td style="text-align:left"><code>:i_month</code></td>
-<td style="text-align:left">建立的月份（无前导零），比如，<code>4</code></td>
-</tr>
-<tr>
-<td style="text-align:left"><code>:day</code></td>
-<td style="text-align:left">建立的日期（有前导零），比如，<code>07</code></td>
-</tr>
-<tr>
-<td style="text-align:left"><code>:i_day</code></td>
-<td style="text-align:left">建立的日期（无前导零），比如，<code>7</code></td>
-</tr>
-</tbody>
-</table>
-<h4 id="草稿"><a href="#草稿" class="headerlink" title="草稿"></a>草稿</h4><p>草稿是一种特殊布局，可以通过 <code>publish</code> 命令将草稿移动到 <code>source/_posts</code> 文件夹，也可以在命令中指定 <code>layout</code> 来指定布局。</p>
-<pre><code>$ hexo publish [layout] &lt;title&gt;
-</code></pre><p>草稿默认不会显示在页面中，可以在执行时加上<code>--draft</code>参数，或者是把 <code>render_drafts</code> 参数设为 <code>true</code> 来预览草稿。</p>
-<h4 id="模板（Scaffold）"><a href="#模板（Scaffold）" class="headerlink" title="模板（Scaffold）"></a>模板（Scaffold）</h4><p>在新建文章时，Hexo 会根据 <code>scaffolds</code>文件夹内相对应的文件来建立文件，例如：</p>
-<pre><code>$ hexo new photo &quot;My Gallery&quot;
-</code></pre><p>在执行这行命令时，Hexo 会尝试在 <code>scaffolds</code> 文件夹中寻找 <code>photo.md</code>，并根据其内容建立文章，以下是您可以在模版中使用的变量：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">变量</th>
-<th style="text-align:left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><code>layout</code></td>
-<td style="text-align:left">布局</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>title</code></td>
-<td style="text-align:left">标题</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>date</code></td>
-<td style="text-align:left">文件建立日期</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h3 id="Front-matter"><a href="#Front-matter" class="headerlink" title="Front-matter"></a>Front-matter</h3><p>Front-matter 是文件最上方以 <code>---</code> 分隔的区域，用于指定个别文件的变量。以下是预先定义的参数，您可以在模板中使用这些参数值并加以利用。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">参数</th>
-<th style="text-align:left">描述</th>
-<th style="text-align:left">默认值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><code>layout</code></td>
-<td style="text-align:left">布局</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left"><code>title</code></td>
-<td style="text-align:left">标题</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left"><code>date</code></td>
-<td style="text-align:left">建立日期</td>
-<td style="text-align:left">文件建立日期</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>updated</code></td>
-<td style="text-align:left">更新日期</td>
-<td style="text-align:left">文件更新日期</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>comments</code></td>
-<td style="text-align:left">开启文章的评论功能</td>
-<td style="text-align:left">true</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>tags</code></td>
-<td style="text-align:left">标签（不适用于分页）</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left"><code>categories</code></td>
-<td style="text-align:left">分类（不适用于分页）</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:left"><code>pwemLINK</code></td>
-<td style="text-align:left">覆盖文章网址</td>
-</tr>
-</tbody>
-</table>
-<p>如果希望文章不可见，可以将 <code>layout</code> 变量设置为 <code>false</code>。</p>
-<h4 id="分类和标签"><a href="#分类和标签" class="headerlink" title="分类和标签"></a>分类和标签</h4><p>只有文章支持分类和标签，你可以在 Front-matter 中设置。在 Hexo 中分类和标签有着明显的差别：分类具有顺序性和层次性，而标签则相反。另外，Hexo 不支持多个同级的分类。例如：</p>
-<pre><code>categories:
-    - Tools
-    - Git
-tags:
-    - Git
-    - Github
-    - CVS
-</code></pre><p>以上设置中，会使 <code>Git</code> 分类成为 <code>Tools</code> 的子分类，而不是并列分类。</p>
-<h4 id="JSON-Front-matter"><a href="#JSON-Front-matter" class="headerlink" title="JSON Front-matter"></a>JSON Front-matter</h4><p>除了 YAML 之外，也可以使用 JSON 来编写 Front-matter，只要将 <code>---</code> 替换为 <code>;;;</code> 即可。</p>
-<hr>
-<h3 id="标签插件"><a href="#标签插件" class="headerlink" title="标签插件"></a>标签插件</h3><p>标签插件和 Front-matter 中的标签不同，这综合症是用于在文章中快速插入特定内容的插件。</p>
-<h4 id="引用块"><a href="#引用块" class="headerlink" title="引用块"></a>引用块</h4><p>在文章中插入引言，可包含作者，来源和标题。</p>
-<pre><code>{% blockquote [author[, source]] [link] [source_link_title] %}
-    content
-    {% endblockquote %}
-</code></pre><p>例如，引用书上的句子：</p>
-<blockquote><p>Do not just seek happiness for yourself. Seek happiness for all. Through mercy.</p>
-<footer><strong>David Levithan</strong><cite>Wide Awake</cite></footer></blockquote>
-<h4 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h4><p>在文章中插入代码。</p>
-<pre><code>{% codeblock [title] [lang:language] [url] [link text] %}
-    code snippet
-    {% endcodeblock %}
-</code></pre><h4 id="反引号代码块"><a href="#反引号代码块" class="headerlink" title="反引号代码块"></a>反引号代码块</h4><p>另一种形式的代码块，不同的是它使用三个反引号来包裹。</p>
-<pre><code>``` [language] [title] [url] [link text] code snippet ```
-</code></pre><h4 id="Pull-Quote"><a href="#Pull-Quote" class="headerlink" title="Pull Quote"></a>Pull Quote</h4><p>在文章中插入 Pull Quote。</p>
-<pre><code>{% pullquote [class] %}
-    content
-    {% endpullquote %}
-</code></pre><h4 id="jsFiddle"><a href="#jsFiddle" class="headerlink" title="jsFiddle"></a>jsFiddle</h4><p>在文章中嵌入 jsFiddle。</p>
-<pre><code>{% jsfiddle shorttag [tabs] [skin] [width] [height] %}
-</code></pre><h4 id="Gist"><a href="#Gist" class="headerlink" title="Gist"></a>Gist</h4><p>在文章中嵌入 Gist。</p>
-<pre><code>{% gist gist_id [filename] %}
-</code></pre><h4 id="iframe"><a href="#iframe" class="headerlink" title="iframe"></a>iframe</h4><p>在文章中插入 iframe。</p>
-<pre><code>｛% iframe url [width] [height] %｝
-</code></pre><h4 id="image"><a href="#image" class="headerlink" title="image"></a>image</h4><p>在文章中插入指定大小的图片。</p>
-<pre><code>{% img [class names] /path/to/image [width] [height] [title text [alt text]] %}
-</code></pre><h4 id="Link"><a href="#Link" class="headerlink" title="Link"></a>Link</h4><p>在文章中插入链接，并自动给外部链接添加 <code>target=&quot;_blank&quot;</code> 属性。</p>
-<pre><code>{% link text url [external] [title] %}
-</code></pre><h4 id="Include-Code"><a href="#Include-Code" class="headerlink" title="Include Code"></a>Include Code</h4><p>插入 <code>source</code> 文件夹内的代码文件。</p>
-<pre><code>{% include_code [title] [lang:language] path/to/file %}
-</code></pre><h4 id="Youtube"><a href="#Youtube" class="headerlink" title="Youtube"></a>Youtube</h4><p>在文章中插入 Youtube 视频。</p>
-<pre><code>{% youtube video_id %}
-</code></pre><h4 id="Vimeo"><a href="#Vimeo" class="headerlink" title="Vimeo"></a>Vimeo</h4><p>在文章中插入 Vimeo 视频。</p>
-<pre><code>{% vimeo video_id %}
-</code></pre><h4 id="引用文章"><a href="#引用文章" class="headerlink" title="引用文章"></a>引用文章</h4><p>引用其它文章的链接。</p>
-<pre><code>{% post_path slug %}
-{% post_link slug [title] %}
-</code></pre><h4 id="引用资源"><a href="#引用资源" class="headerlink" title="引用资源"></a>引用资源</h4><p>引用文章的资源。</p>
-<pre><code>{% asset_path slug %}
-{% asset_img slug [title] %}
-{% asset_link slug [title] %}
-</code></pre><h4 id="Raw"><a href="#Raw" class="headerlink" title="Raw"></a>Raw</h4><p>如果您想在文章中插入 Swig 标签，可以尝试使用 Raw 标签，以免发生解析异常。</p>
-<pre><code>{% raw %}
-    content
-    {% endraw %}
-</code></pre><hr>
-<h3 id="资源文件夹"><a href="#资源文件夹" class="headerlink" title="资源文件夹"></a>资源文件夹</h3><p>资源（Asset）代表 <code>source</code> 文件夹中除了文章以外的所有文件。访问它们的最简单方法是使用相对路径的常规 markdown 语法<code>![](/xxx/xxx.jpg)</code>。但该方法不能在首页上正确工作。</p>
-<h4 id="文章资源文件夹"><a href="#文章资源文件夹" class="headerlink" title="文章资源文件夹"></a>文章资源文件夹</h4><p>如果想单独组织和管理各个文章的资源，可以将<code>_config.yml</code>的<code>post_asset_folder</code>的选项设为<code>true</code>。Hexo会在每次通过<code>hexo new [layout] &lt;title&gt;</code>命令创建新文章时自动创建一个与 markdown 文件一样名字的文件夹，可以将所有与该文章有关的资源放到这个关联文件夹中，就可以通过相对路径来引用它们。方法参考<a href="#引用资源">引用资源</a>。</p>
-<p>例如：</p>
-<pre><code>{% asset_img example.jpg This is an example image. %}
-</code></pre><hr>
-<h3 id="数据文件"><a href="#数据文件" class="headerlink" title="数据文件"></a>数据文件</h3><p>如果您需要在主题中使用某些资源，而这些资料并不会在文章内，并且是需要重复使用的，那么可以考虑 数据文件 功能。此功能会载入 <code>source/_data</code> 内的 YAML 或 JSON 文件。</p>
-<p>举例来说，在 <code>source/_data</code> 文件夹中新建 <code>menu.yml</code> 文件：</p>
-<pre><code>Home: /
-Gallery: /gallery/
-Archives: /archives/
-</code></pre><p>就可以在模板中使用：</p>
-<pre><code>&lt;% for (var link in site.data.menu) { %&gt;
-&lt;% &lt;a href=&quot;&lt;%= site.data.menu[link]  %&gt;&quot;&gt; &lt;%= link %&gt; &lt;/a&gt; %&gt;
-&lt;% } %&gt;
-</code></pre><h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><p>在开始之前，您必须先在 <code>_config.yml</code>中修改参数，一个正确的部署配置中至少要有 <code>type</code> 参数，例如：</p>
-<pre><code>deploy:
-    type: git
-</code></pre><p>您可以同时使用多个 deployer，Hexo 会依照顺序执行每个 deployer。</p>
-<pre><code>deploy:
-- type: git
-  repo:
-- type: heroku
-  repo:
-</code></pre><h4 id="部署到-Git"><a href="#部署到-Git" class="headerlink" title="部署到 Git"></a>部署到 Git</h4><p>安装 <code>hexo-deployer-git</code>。</p>
-<pre><code>$ npm install hexo-deployer-git --save
-</code></pre><p>修改配置：</p>
-<pre><code>deploy:
-  type:git
-  repo: &lt;repository url&gt;
-  branch: [branch]
-  message: [message]
-</code></pre><table>
-<thead>
-<tr>
-<th style="text-align:left">参数</th>
-<th style="text-align:left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><code>repo</code></td>
-<td style="text-align:left">库（Repository）地址。</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>branch</code></td>
-<td style="text-align:left">分支名称。</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>message</code></td>
-<td style="text-align:left">自定义提交信息。</td>
-</tr>
-</tbody>
-</table>
-<p>其它部署类型请参考<a href="https://hexo.io/zh-cn/docs/deployment.html" target="_blank" rel="external">此处</a></p>
-]]></content>
-      
-        <categories>
-            
-            <category> Hexo </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> Hexo </tag>
-            
-            <tag> 使用教程 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[新的开始]]></title>
-      <url>http://blog.zhiyuanep.net/2017/03/27/%E6%96%B0%E7%9A%84%E5%BC%80%E5%A7%8B/</url>
-      <content type="html"><![CDATA[<p>这是一个新的开始。</p>
-]]></content>
+    </div>
+
+    <div>
       
         
-    </entry>
-    
-    <entry>
-      <title><![CDATA[Hello World]]></title>
-      <url>http://blog.zhiyuanep.net/2017/03/27/hello-world/</url>
-      <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-]]></content>
+
+      
+    </div>
+
+    <div>
       
         
-    </entry>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Git/" rel="tag"># Git</a>
+          
+            <a href="/tags/学习笔记/" rel="tag"># 学习笔记</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/17/Hexo简易使用手册/" rel="next" title="Hexo简易使用手册">
+                <i class="fa fa-chevron-left"></i> Hexo简易使用手册
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
     
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="zhylee" />
+          <p class="site-author-name" itemprop="name">zhylee</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/zhiyuanep" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景知识"><span class="nav-number">1.</span> <span class="nav-text">背景知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于版本控制"><span class="nav-number">1.1.</span> <span class="nav-text">关于版本控制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是“版本控制”？"><span class="nav-number">1.1.1.</span> <span class="nav-text">什么是“版本控制”？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#版本控制系统-VCS-的演进"><span class="nav-number">1.1.2.</span> <span class="nav-text">版本控制系统(VCS)的演进</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#本地版本控制系统"><span class="nav-number">1.1.3.</span> <span class="nav-text">本地版本控制系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#集中化的版本控制系统-CVCS"><span class="nav-number">1.1.4.</span> <span class="nav-text">集中化的版本控制系统(CVCS)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分布式版本控制系统"><span class="nav-number">1.1.5.</span> <span class="nav-text">分布式版本控制系统</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git-的思想和基本工作原理"><span class="nav-number">1.2.</span> <span class="nav-text">Git 的思想和基本工作原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#直接记录快照，而非差异比较"><span class="nav-number">1.2.1.</span> <span class="nav-text">直接记录快照，而非差异比较</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#近乎所有操作都是本地执行"><span class="nav-number">1.2.2.</span> <span class="nav-text">近乎所有操作都是本地执行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Git-保证完整性"><span class="nav-number">1.2.3.</span> <span class="nav-text">Git 保证完整性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Git-一般只添加数据"><span class="nav-number">1.2.4.</span> <span class="nav-text">Git 一般只添加数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三种状态"><span class="nav-number">1.2.5.</span> <span class="nav-text">三种状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#基本的-Git-工作流程"><span class="nav-number">1.2.6.</span> <span class="nav-text">基本的 Git 工作流程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初次运行-Git-前的配置"><span class="nav-number">1.3.</span> <span class="nav-text">初次运行 Git 前的配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#用户信息"><span class="nav-number">1.3.1.</span> <span class="nav-text">用户信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文本编辑器"><span class="nav-number">1.3.2.</span> <span class="nav-text">文本编辑器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#检查配置信息"><span class="nav-number">1.3.3.</span> <span class="nav-text">检查配置信息</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取帮助"><span class="nav-number">1.4.</span> <span class="nav-text">获取帮助</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-基础"><span class="nav-number">2.</span> <span class="nav-text">Git 基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取-Git-仓库"><span class="nav-number">2.1.</span> <span class="nav-text">获取 Git 仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#在现有目录中初始化仓库"><span class="nav-number">2.1.1.</span> <span class="nav-text">在现有目录中初始化仓库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#克隆现有的仓库"><span class="nav-number">2.1.2.</span> <span class="nav-text">克隆现有的仓库</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#记录每次更新到仓库"><span class="nav-number">2.2.</span> <span class="nav-text">记录每次更新到仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#检查当前文件状态"><span class="nav-number">2.2.1.</span> <span class="nav-text">检查当前文件状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#跟踪新文件"><span class="nav-number">2.2.2.</span> <span class="nav-text">跟踪新文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#暂存已修改文件"><span class="nav-number">2.2.3.</span> <span class="nav-text">暂存已修改文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#状态简览"><span class="nav-number">2.2.4.</span> <span class="nav-text">状态简览</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#忽略文件"><span class="nav-number">2.2.5.</span> <span class="nav-text">忽略文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看已暂存和未暂存的修改"><span class="nav-number">2.2.6.</span> <span class="nav-text">查看已暂存和未暂存的修改</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#提交更新"><span class="nav-number">2.2.7.</span> <span class="nav-text">提交更新</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#跳过使用暂存区域"><span class="nav-number">2.2.8.</span> <span class="nav-text">跳过使用暂存区域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#移除文件"><span class="nav-number">2.2.9.</span> <span class="nav-text">移除文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#移动文件"><span class="nav-number">2.2.10.</span> <span class="nav-text">移动文件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看提交历史"><span class="nav-number">2.3.</span> <span class="nav-text">查看提交历史</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#显示每交提交内容差异"><span class="nav-number">2.3.1.</span> <span class="nav-text">显示每交提交内容差异</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看提交统计信息"><span class="nav-number">2.3.2.</span> <span class="nav-text">查看提交统计信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#定制输出格式和内容"><span class="nav-number">2.3.3.</span> <span class="nav-text">定制输出格式和内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#限制输出长度"><span class="nav-number">2.3.4.</span> <span class="nav-text">限制输出长度</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#撤消操作"><span class="nav-number">2.4.</span> <span class="nav-text">撤消操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#覆盖上一次提交"><span class="nav-number">2.4.1.</span> <span class="nav-text">覆盖上一次提交</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#取消暂存的文件"><span class="nav-number">2.4.2.</span> <span class="nav-text">取消暂存的文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#撤消对文件的修改"><span class="nav-number">2.4.3.</span> <span class="nav-text">撤消对文件的修改</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#远程仓库的使用"><span class="nav-number">2.5.</span> <span class="nav-text">远程仓库的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#查看远程仓库"><span class="nav-number">2.5.1.</span> <span class="nav-text">查看远程仓库</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhylee</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
   
   
-</search>
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://zhylee.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://blog.zhiyuanep.net/2017/04/19/Git学习笔记/';
+          this.page.identifier = '2017/04/19/Git学习笔记/';
+          this.page.title = 'Git学习笔记';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://zhylee.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
