@@ -1,0 +1,847 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="HTML5," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="zhylee's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="全局属性是所有 HTML 元素共有的属性；它们可以用于所有元素，尽管属性可能对某些元素没有影响。 accesskey这个属性提供了一种使用快捷键访问当前元素的途径。它是用一个字符（单个 Unicode code）列表的独立规范构成。浏览器应使用键盘的第一布局。 classclass 属性允许 css 和 JavaScript 通过 class 选择器或者类似以下的 DOM 方法来选择和访问 Ele">
+<meta name="keywords" content="HTML5">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML5全局属性">
+<meta property="og:url" content="http://blog.zhiyuanep.net/2017/07/02/HTML5全局属性/index.html">
+<meta property="og:site_name" content="zhylee&#39;s Blog">
+<meta property="og:description" content="全局属性是所有 HTML 元素共有的属性；它们可以用于所有元素，尽管属性可能对某些元素没有影响。 accesskey这个属性提供了一种使用快捷键访问当前元素的途径。它是用一个字符（单个 Unicode code）列表的独立规范构成。浏览器应使用键盘的第一布局。 classclass 属性允许 css 和 JavaScript 通过 class 选择器或者类似以下的 DOM 方法来选择和访问 Ele">
+<meta property="og:updated_time" content="2017-07-02T15:11:30.567Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTML5全局属性">
+<meta name="twitter:description" content="全局属性是所有 HTML 元素共有的属性；它们可以用于所有元素，尽管属性可能对某些元素没有影响。 accesskey这个属性提供了一种使用快捷键访问当前元素的途径。它是用一个字符（单个 Unicode code）列表的独立规范构成。浏览器应使用键盘的第一布局。 classclass 属性允许 css 和 JavaScript 通过 class 选择器或者类似以下的 DOM 方法来选择和访问 Ele">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://blog.zhiyuanep.net/2017/07/02/HTML5全局属性/"/>
+
+
+
+
+
+  <title> HTML5全局属性 | zhylee's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">zhylee's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">本该狂妄的年纪，怎能如此消极？</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.zhiyuanep.net/2017/07/02/HTML5全局属性/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhylee">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhylee's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                HTML5全局属性
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-02T23:11:30+08:00">
+                2017-07-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTML5/" itemprop="url" rel="index">
+                    <span itemprop="name">HTML5</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/07/02/HTML5全局属性/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/07/02/HTML5全局属性/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>全局属性是所有 HTML 元素共有的属性；它们可以用于所有元素，尽管属性可能对某些元素没有影响。</p>
+<h3 id="accesskey"><a href="#accesskey" class="headerlink" title="accesskey"></a>accesskey</h3><p>这个属性提供了一种使用快捷键访问当前元素的途径。它是用一个字符（单个 Unicode code）列表的独立规范构成。浏览器应使用键盘的第一布局。</p>
+<h3 id="class"><a href="#class" class="headerlink" title="class"></a>class</h3><p>class 属性允许 css 和 JavaScript 通过 class 选择器或者类似以下的 DOM 方法来选择和访问 Element：</p>
+<pre><code>document.getElementsByClassName()
+</code></pre><p><strong>使用说明</strong>：尽管规范没有将 class 的名字定为必须的，但是开发者会使用一个能描述 element 语义化用途的名字，而不会使用一个描述他外观的名字。语义化的名字仍然有意义即使页面的表现形式改变了。</p>
+<h3 id="contenteditable"><a href="#contenteditable" class="headerlink" title="contenteditable"></a>contenteditable</h3><p>这个<strong>可枚举</strong>的属性表示该 element 可以被用户编辑。如果是这样，浏览器会修改 widget 让它允许编辑。其值为 <code>true</code> 或 <code>false</code>。</p>
+<p>如果这个属性没有被设置，它的默认值会继承其父 element 的值。</p>
+<p><strong>使用说明</strong>：该属性是一个可枚举的属性，而不是一个布尔属性。这意味着 <code>true</code>、<code>false</code>或空字符串的显式使用是强制的。这样的简写 <code>&lt;label contenteditable&gt;Example Label&lt;/label&gt;</code> 是不允许的。正确的使用方式是：<code>&lt;label contenteditable=&quot;true&quot;&gt;Example Label&lt;/label&gt;</code>.</p>
+<h3 id="contextmenu"><a href="#contextmenu" class="headerlink" title="contextmenu"></a>contextmenu</h3><p>一个 context menu 是一个菜单，出现在用户的交互里，比如一次右击。 HTML5 允许我们自定义这个菜单。</p>
+<h3 id="data"><a href="#data" class="headerlink" title="data-*"></a>data-*</h3><p>这类属性被称为自定义属性，允许 HTML 与和它对应 DOM 表现形式之间的专有信息交换，这或许对 script 来说有用。<code>HTMLElement.dataset</code> 属性提供了访问它们的权限。</p>
+<p>命名规则：</p>
+<ul>
+<li>不能以 xml 开头，除此之外其它斜体情形都可以使用这三个字母；</li>
+<li>名字不能含有分号；</li>
+<li>名字不能含有大写字母。</li>
+</ul>
+<p>注意：<code>HTMLElement.dataset</code>是一个 StringMap，一个名叫 <code>data-test-value</code>的自定义属性可以通过 <code>HTMLElement.dataset.testValue</code> 来访问。属性的名字中的中线被挨着它字母的大写字母代替了（驼峰命名）。</p>
+<h3 id="dir"><a href="#dir" class="headerlink" title="dir"></a>dir</h3><p>这个<strong>可枚举</strong>属性表明 element 的文本方向，可以取以下的值：</p>
+<ul>
+<li><code>ltr</code>，适用于从左到右的语言；</li>
+<li><code>rtl</code>，适用于从右到左的语言；</li>
+<li><code>auto</code>，由代理决定。用一个最基础的算法来解析 element 中的字符，如果发现有一个字符具有强的方向性，那么就把这个方向作为整个 element 的方向。</li>
+</ul>
+<p><strong>使用说明</strong>：</p>
+<ul>
+<li>这个属性在 <code>&lt;bdo&gt;</code> 元素中强制要求使用，它在里边有不同的语法含义。</li>
+<li><code>&lt;bdi&gt;</code> 元素不继承父元素的该属性。如果不设置，它的值就是 <code>auto</code>。</li>
+<li>这个属性能够被 css 属性 <code>direction</code> 和 <code>unicode-bidi</code> 覆盖。</li>
+<li>因为文本的方向与内容本身有关，和它的表现没关系，所以推荐开发者尽可能使用这个属性来避免在 css 属性中使用。这样的话，即使浏览器不支持 css 或者 css 被解除，它还是会正确显示。</li>
+<li><code>auto</code>值应该用到不明方向的数据中，就像用户输入的数据，它最终会保存到数据中去。</li>
+</ul>
+<h3 id="draggable"><a href="#draggable" class="headerlink" title="draggable"></a>draggable</h3><p>这个<strong>可枚举</strong>的属性决定一个 element 是否能够被拖动，可使用以下的值：</p>
+<ul>
+<li><code>true</code>，表示该 element 可以被拖动。</li>
+<li><code>false</code>，表示该 element 不可以被拖动。</li>
+<li><code>auto</code>，默认值，表示它的行为由浏览器定义。</li>
+</ul>
+<p><strong>使用说明</strong>：</p>
+<ul>
+<li>该属性是一个可枚举属性，不是布尔属性，其值不能够被简写。</li>
+<li>默认情况下，只有被选中的文本、图像、链接能够被拖动。对于其它 element 而言，为也让拖拽机制能够正常工作，<code>ondragstart</code> 必须被设置。</li>
+</ul>
+<h3 id="dropzone（未实现）"><a href="#dropzone（未实现）" class="headerlink" title="dropzone（未实现）"></a>dropzone（未实现）</h3><p>这个<strong>可枚举</strong>属性决定丢到一个 element 上的内容类型，可使用的值如下：</p>
+<ul>
+<li><code>copy</code>，表示丢放时会创建一个被拖拽 element 的副本；</li>
+<li><code>move</code>，表示被拖拽的 element 被移动到这个新位置；</li>
+<li><code>link</code>，将会给拖拽的数据创建一个链接。</li>
+</ul>
+<h3 id="hidden"><a href="#hidden" class="headerlink" title="hidden"></a>hidden</h3><p>这个<strong>布尔</strong>属性表示 element 被隐藏，浏览器不会渲染该元素。</p>
+<h3 id="id"><a href="#id" class="headerlink" title="id"></a>id</h3><p>这个属性是 element 唯一的标识，它在整个 document 里应该是唯一的。当需要链接、执行脚本、控制样式时，可以用它来定位识别元素。</p>
+<h3 id="lang"><a href="#lang" class="headerlink" title="lang"></a>lang</h3><p>这个属性用于定义 element 的语言。不管这个 element 能不能被编辑，都应该写上这个属性。</p>
+<p>如果属性的内容是空字符串，那么语言就会被设置为 unknown；如果标签的内容是无效的，它就会被设置为 invalid。</p>
+<h3 id="spellcheck"><a href="#spellcheck" class="headerlink" title="spellcheck"></a>spellcheck</h3><p>这个<strong>可枚举</strong>属性定义 element 是否检查拼写错误。它的值可以是以下：</p>
+<ul>
+<li><code>true</code>,表示如果可能的话， element 应该被检查拼写错误；</li>
+<li><code>false</code>，表示 element不应该检查拼写错误。<br>×　默认值可能是浏览器定义的，也可能由父元素决定。</li>
+</ul>
+<p><strong>使用说明</strong>：</p>
+<ul>
+<li>这个属性是可枚举的，不是一个布尔属性，值不可以简写；</li>
+<li>对于浏览器来说，这个属性只是一个提示，浏览器不一定会去检查拼写错误。通常不可编辑的 element 是不检查拼写错误的。</li>
+</ul>
+<h3 id="style"><a href="#style" class="headerlink" title="style"></a>style</h3><p>这个属性包含 css 样式声明，被应用到元素上。注意推荐将它定义在其它文件里。这个属性和 <code>&lt;style&gt;</code> 元素一样，主要的目的是快速编写样式，用来测试想要的效果。</p>
+<h3 id="tabindex"><a href="#tabindex" class="headerlink" title="tabindex"></a>tabindex</h3><p>这个整数类型的属性决定 element 是否要以获得焦点，如果它参与到排序的键盘导航，就可以定位它。它可能需要以下几种值：</p>
+<ul>
+<li>负数意味着该 element 不可以获得焦点，也不可以通过排序的键盘导航到达；</li>
+<li>0 意味着 element 可以通过排序的键盘导航到达，但是相对顺序取决于平台惯例；</li>
+<li>一个正数意味着可以通过排序的键盘导航获得焦点并到达。相对顺序去决议该属性的值，按照 tabindex 的增值排序。如果几个 element 有相同的 tabindex,他们的相对顺序取决于他们在 document 中的位置。</li>
+</ul>
+<p>在排序的键盘导航单上，如果一个元素的 tabindex 的值是一个0或者无效值或没有该属性，那么它应该被放在值是正数的element 后边。</p>
+<h3 id="title"><a href="#title" class="headerlink" title="title"></a>title</h3><p>这个属性包含的是文本信息，该信息代表 element 自己包含的内容的公告。这样的信息不是必要的，但是作为一个提示用户的工具，一般会有以下几个用法：</p>
+<ul>
+<li>链接：关于被链接文档的一个标题或一段描述；</li>
+<li>和图片类似的媒体元素：一段描述或相关的可信度；</li>
+<li>段落：脚注活评论；</li>
+<li>引用：关于作者等一些信息。</li>
+</ul>
+<p>如果这个属性不存在或被清除了，则意味着离它最近的祖先元素的 title 和它相关（能够相应地成为这个元素的提示工具）。如果这个属性是空字符串，则表示离它最近的父元素的 title 和它没关系（不能作为这个元素的提示工具）。</p>
+<p><code>&lt;link&gt;</code>、<code>&lt;abbr&gt;</code>和 <code>&lt;input&gt;</code>的 title 属性可以包含额外的语义信息。</p>
+<p>title 可能包含多行信息，通过插入换行符。</p>
+<h3 id="translate"><a href="#translate" class="headerlink" title="translate"></a>translate</h3><p>这是一个可枚举属性，用于确定当页面进行本地化时，元素的属性以及元素的文本子节点中的内容是否要进行翻译。其可取的值如下 ：</p>
+<ul>
+<li>空字符串或者 <code>yes</code>，表示这个元素相关的内容将会被翻译；</li>
+<li><code>no</code>，表示这个元素相关的内容不会被翻译。</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/HTML5/" rel="tag"># HTML5</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/01/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="zhylee" />
+          <p class="site-author-name" itemprop="name">zhylee</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/zhiyuanep" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#accesskey"><span class="nav-number">1.</span> <span class="nav-text">accesskey</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#class"><span class="nav-number">2.</span> <span class="nav-text">class</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#contenteditable"><span class="nav-number">3.</span> <span class="nav-text">contenteditable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#contextmenu"><span class="nav-number">4.</span> <span class="nav-text">contextmenu</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#data"><span class="nav-number">5.</span> <span class="nav-text">data-*</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dir"><span class="nav-number">6.</span> <span class="nav-text">dir</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#draggable"><span class="nav-number">7.</span> <span class="nav-text">draggable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dropzone（未实现）"><span class="nav-number">8.</span> <span class="nav-text">dropzone（未实现）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hidden"><span class="nav-number">9.</span> <span class="nav-text">hidden</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#id"><span class="nav-number">10.</span> <span class="nav-text">id</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lang"><span class="nav-number">11.</span> <span class="nav-text">lang</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#spellcheck"><span class="nav-number">12.</span> <span class="nav-text">spellcheck</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#style"><span class="nav-number">13.</span> <span class="nav-text">style</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tabindex"><span class="nav-number">14.</span> <span class="nav-text">tabindex</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#title"><span class="nav-number">15.</span> <span class="nav-text">title</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#translate"><span class="nav-number">16.</span> <span class="nav-text">translate</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhylee</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://zhylee.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://blog.zhiyuanep.net/2017/07/02/HTML5全局属性/';
+          this.page.identifier = '2017/07/02/HTML5全局属性/';
+          this.page.title = 'HTML5全局属性';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://zhylee.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
